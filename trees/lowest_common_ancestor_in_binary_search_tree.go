@@ -8,5 +8,20 @@ package trees
   - all node values are unique
 */
 func lowestCommonAncestor(root *TreeNode, p *TreeNode, q *TreeNode) *TreeNode {
-	return nil
+	if p == nil || q == nil || root == nil {
+		return nil
+	}
+
+	cur := root
+	for cur != nil {
+		if cur.Val < p.Val && cur.Val < q.Val {
+			cur = cur.Right
+		} else if cur.Val > p.Val && cur.Val > q.Val {
+			cur = cur.Left
+		} else {
+			return cur
+		}
+	}
+
+	return cur
 }

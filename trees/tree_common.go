@@ -89,3 +89,37 @@ func printTree(root *TreeNode) {
 	printTree(root.Left)
 	printTree(root.Right)
 }
+
+type TreeStack struct {
+	data []*TreeNode
+}
+
+func NewTreeStack() *TreeStack {
+	return &TreeStack{
+		data: make([]*TreeNode, 0),
+	}
+}
+
+func (s *TreeStack) Push(n *TreeNode) {
+	s.data = append(s.data, n)
+}
+
+func (s *TreeStack) Peek() *TreeNode {
+	if len(s.data) == 0 {
+		return nil
+	}
+	return s.data[len(s.data)-1]
+}
+
+func (s *TreeStack) Pop() *TreeNode {
+	if len(s.data) == 0 {
+		return nil
+	}
+	res := s.data[len(s.data)-1]
+	s.data = s.data[:len(s.data)-1]
+	return res
+}
+
+func (s *TreeStack) Empty() bool {
+	return len(s.data) == 0
+}
