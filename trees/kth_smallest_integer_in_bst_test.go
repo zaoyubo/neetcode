@@ -8,7 +8,7 @@ import (
 
 func Test_kthSmallest(t *testing.T) {
 	root := input("[4,3,5,2,null]")
-	assert.Equal(t, kthSmallest(root, 4), 5)
-	assert.Equal(t, kthSmallestV2(root, 4), 5)
-	assert.Equal(t, kthSmallestV3(root, 4), 5)
+	assert.Equal(t, 5, kthSmallest(root, 4))
+	assert.Equal(t, 5, kthSmallestV2(root, 4))
+	assert.Equal(t, 5, kthSmallestV3(root, 4))
 }
